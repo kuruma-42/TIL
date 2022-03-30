@@ -41,3 +41,30 @@ ASCII code
 
 Uni-code 
 - 16bit로 세상의 모든 문자를 표현할 수 있는 체계
+
+사용자가 정의하는 자료형 (user-defined data type)
+
+하나의 자료는 다양한 자료형을 가진 요소들의 
+집합으로 표현될 수 있다.
+
+이러한 요소들의 집합으로 새로운 
+자료형을 정의 (User or Student)
+
+- struct (C언어)
+- class (C++, Java, Python)
+
+
+### What is Manipulation
+- Insert
+- Delete 
+- Search
+- Modify
+- 추가 제거 검색 갱신등 많은 관리 작업이 가능 
+- 가장 중요한 3연산: 추가, 제거, 검색
+- 추가와 제거는 1번만 사용 가능
+- 검색은 매우 빈번하게 사용 : 가장 중요한 작업은 검색이다. 
+
+#### 검색의 3가지 종류 
+- 주어지 집합에서 임의의 원소를 찾아라 (find arbitrary) 
+- 주어진 집합에서 가장 먼저/늦게 온 원소를 찾아라 (Find Earliest / Last)
+- 주어진 집합에서 top(최대/최소)인 원소를 찾아라(Find Top) 
