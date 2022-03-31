@@ -89,3 +89,82 @@ Uni-code
 
 #### 구조 3: Queue
 - Ex) 자료 (명항들 + 만난 순서) 구조 (큐)  
+
+
+
+#### 구조 4:  Hierarchy
+- Ex) 족보를 표현하는 방법 관계의 일관성을 표현할 수 있는 트리 구조가 필요하다 자료(족보) 구조(트리) 
+
+#### 구조 5: Graph 
+- 시각적 표현 (관계)
+
+
+### Abstraction 
+- 개별적인 사람이나 사물 상황의 성질부터 추출되어 가공된 일반적이고 공통적인 개념 
+
+
+#### 자료구조에서의 추상화
+- 매우 다양한 형태의 자료가 존재함
+- 각 자료들의 개별적인 속성을 제거하고 공통된 속성을 추출하여 이를 이용하는 과정
+
+Ex) 
+다양한 자료 : 전화번호, 앱, 버스번호
+공통된 속성 : 리스트로 관리
+공통된 연산 : 추가, 제거, 검색, etc
+
+#### 추상 자료형( abstract data type)
+- 자료와 자료에 대한 연산들을 명기한 개념
+- Class of objects whose logical behavior is defined by a set of values and set of operations
+- Ex) class 안에 연산들을 묶었을 때 
+
+#### 효율 (Efficiency)란 무엇인가?
+- 어떤 성과(solution)을 얻기 위해서 얼마나 많은 자원 (resource)을 투입하였는지를 측정
+- 성능(performance)라고도 함
+- Efficiency or Performance = Solution / Resource
+
+#### 효율(efficient)와 효과적(effective)
+- 어떤 성과를 얻기 위해서 얼마나 많은 자원을 투입하였는지를 측정하는 점은 동일하다
+- 효율적은 동일한 성과를 얻기 위해서 투입된 자원의 크기에 따라서 결정됨
+- 효과적
+
+#### 성능의 3가지 경우
+- 최선의 경우 (Best case) => 최고기록 (기록중에 제일 좋은 기록만 기억) 
+- 평균의 경우 (Average case) => 평점 (여러 과목의 점수들 중에서 평균점 산정)
+- 최악의 경우 (Worst case) => 가장 긴 시간을 알려줌 
+- “자료 구조에서의 성능은 최악의 경우에 대한 성능임” ( 최악의 경우에는 보장이라는 의미를 내포한다)
+
+#### 컴퓨터의 자원 (resource)
+- 시간 => CPU (이 프로그램은 10초 걸린다) 
+- 공간 => Memory (이 프로그램은 100Mbyte의 메모리를 요구한다)
+* CPU가 더 비싸고 발전이 느리기 때문에 시간에 대한 자원이 더 중요하다 
+
+#### 자료 구조의 성능 
+- 입력된 자료의 크기에 따라서 시간(공간)이 얼마나 필요할지 측정
+- 입력된 자료의 크기가 증가할수록 요구되는 시간(공간)의 증가 속도를 표현
+
+#### Summary 
+
+자료를 효율적으로 관리하는 기법
+일차원 구조 
+리스트 
+- Array
+- Linked list
+- Stack / Queue
+* Sorting
+
+계층 구조 
+트리 
+- Binary Search Tree 
+- Priorty Queue
+* Search
+
+관계를 표현하고 정보를 추출하는 기법
+
+그래프 
+- Depth first traversal
+- Breadth first traversal 
+
+
+
+
+
