@@ -98,6 +98,45 @@
 - 풀 (isFull)
 - 엠티 (isEmpty)
 
+
+### 검색 (Search)의 정의
+
+성공한 검색 
+- Key Element가 배열에 있는 경우
+실패한 검색
+- Key Element가 배열에 없는 경우
+
+선형 검색 (linear search)
+- 완전 검색 (exhaustive search) 또는 순차 검색 (sequential search)
+- 배열의 첫 번째 원소부터 차례로 방문하면서 key element와 동일한 원소가 있는지 확인 
+- 정렬되지 않은 배열에서도 적용할 수 있다. 
+
+i번째 원소와 key element의 비교 -> 같으면 i를 리턴 
+모든 원소 (0 ~ n - 1 번째)에 대해서 비교 
+끝까지 같은 원소를 찾지 못했으면 -> -1을 리턴 (실패) 
+
+```swift
+index linear_search( Array arr, elt x )
+for( int i = 0; i < n; i++) {
+    if (arr[i] == x)
+    return i;
+}
+
+return -1; // Null
+```
+
+선형 탐색의 시간 복잡도(time complexity)는?
+- 최악의 경우 : O(n)
+- 평균의 경우 : O(n/2) -> O(n)
+- 최선의 경우 : O(1)
+
+이진 검색 (binary search) 
+- 분할 정복 (divide & conquer) 알고리즘
+- 배열의 중간 원소 (mid element)와 key element를 비교하여 배열을 분할함으로써 검색을 수행
+- 정렬된 배열에서만 적용할 수 있음 
+
+
+
 ### Definition
 - 데이터가 많아지면 그룹 관리의 필요성이 생긴다. 
 - 여러 데이터를 하나의 이름으로 그룹핑해서 관리하기 위한 데이터 스트럭쳐이다.
