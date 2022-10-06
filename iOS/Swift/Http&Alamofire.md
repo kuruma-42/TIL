@@ -73,6 +73,21 @@ public struct OpenApiResponse<T:Codable>: Codable {
                        // Send JSon Data
                        promise(.success(data))
                    case .failure(let error):
+                   
+                       guard let data = response.data else {
+                           promise(.failure(error))
+                           return
+                       }
+                       
+                       // Json Decoding
+                       guard let errorResponse = jsonDecoding(responseData: data, responseInstance: OpenApiResponseGeneric<DecodingSturct>.self) else {
+                           promise(.failure(error))
+                           return
+                       }
+                       
+                       // Handling Error With status & message Here After Define Server Error
+                       Logger.error("openAPI error - status: \(errorResponse.status), message: \(errorResponse.message)")
+                       
                        // Send Failure Data With Error
                        promise(.failure(error))
                    }
