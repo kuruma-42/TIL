@@ -12,13 +12,23 @@ k = 3
 a[5] = {1,2,3,4,5}
 
 ```swift
-void combi( int start, vector<int> b) {
-	if b.size() == k {	return;	}
+var n = 5
+var k = 3
+var a = [1,2,3,4,5]
+var container: [Int] = []
+var count = 0
 
-  for( int i = start + 1; i < n; i++) { 
-        b.push_back(i);
-        combi( i, b);
-        b.push_popBack(i);	
-  }
- }
+public func combination(start: Int, b: inout [Int]) {
+    if b.count == k {
+        count += 1
+        print("cnt :: \(count) result :: \(b)")
+        return
+    }
+    
+    for i in (start+1)..<n {
+        b.append(i)
+        combination(start: i, b: &b)
+        b.popLast()
+    }
+}
 ```
