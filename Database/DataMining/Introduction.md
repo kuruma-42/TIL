@@ -1,4 +1,4 @@
-Data Mining Introduction  
+# Data Mining Introduction  
 
 Big Data는 특히 4개의 V로 설명될 수 있음 
 - Volume, Variety, Velocity, Veracity
