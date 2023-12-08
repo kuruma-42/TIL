@@ -56,7 +56,7 @@ Memory Allocation
         - Variable Partition(VPM) 
 
 Continuous Memory Allocation 
-- 프로세스(context)를 하나의 ㅇ녀속된 메모리 공간에 할당하는 정책
+- 프로세스(context)를 하나의 연속된 메모리 공간에 할당하는 정책
     - 프로그램 데이터 스택 등 
 - 메모리 구성 정책
     - 메모리에 동시에 올라갈 수 있는 프로세스의 수 
