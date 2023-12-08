@@ -116,5 +116,41 @@ Associative Mapping
 - Low overhead, High speed 
 - Expensive Hardware 
     - 큰 PMT를 다루기가 어려움 
+Memory Management 
+- Page와 같은 크기로 미리 분할 하여 관리/ 사용
+    - Page Frame 
+    - FPM 기법과 유사 
+
+- Frame table 
+    - page frame당 하나의 entry 
+    - 구성
+        - Allocated/ available field 
+        - PID filed 
+        - Link Field : For free list(사용가능 한 fp들을 연결)
+        - AV: Free List Header( free list의 시작점) 
+
+Page Sharing 
+- 여러 프로세스가 특정 page를 공유 가능 
+    - Non-continous allocation 
+- 공유 가능 page 
+    - Procedure pages (function 들) 
+        - pure code(reenter code) 
+    - Data page 
+        - Read-only data (편하게 공유한다)
+        - Read_write data (읽기 쓰기 같이 되는 곳은)
+            - 병행성 (Concurrency) 제어 기법 관리하에서만 가능하다. 
+- 여러 프로세스가 page를 공유 할 때, Protection bit 사용 
+
+Paging System Summary 
+- 프로그램을 고정된 크기의 block으로 분할(page) / 메모리를 block size로 미리 분할 (page frame)
+    - 외부 단편화 문제 없음
+    - 메모리 통합/압축 불필요
+    - 프로그램의 논리적 구조를 고려하지 않음
+        - page sharing/ protection이 복잡하다
+- 필요한 page만 page frame에 적재하여 사용 
+- page mapping overhead 
+    - 메모리 공간 및 추가적인 메모리 접근이 필요
+    - 전용 HW활용으로 해결 가능 
+        - 하드웨어 비용이 증가 (TLB <translation look-aside buffer>) 
 
 
