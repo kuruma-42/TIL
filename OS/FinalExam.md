@@ -104,4 +104,36 @@ segmentation
 - Link의 개념 사용 (바로가기 같이 연결해줌) 
 * General Graph Directory 
     * Cycle을 허용
-    * File 탐색 시, Infinite loop를 고려해야함 
+    * File 탐색 시, Infinite loop를 고려해야함
+ 
+
+8. 디스크 할당 방식 
+- Continous allocation 
+    - 한 File을 디스크의 연속된 block에 저장
+    - 장점 
+        - 효율적인 file 접근 (순차, 직접 접근) 
+    - 문제점 
+        - 새로운 file을 위한 공간 확보가 어려움
+        - External fragmentation 
+        - File 공간 크기 결정이 어려움 
+            - 파일이 커져야 하는 경우 고려해야 함.
+- Discontinous allocation
+    - Linked allocation
+        - File이 저장된 block들을 linked list로 연결 
+            - 비연속 할당 가능
+        - Directory는 각 file에 대한 첫 번째 block에 대한 포인터를 가짐 
+        - Simple, No external fragmentation 
+        - 단점
+            - 직접 접근에 비효율적
+            - 포인터 저장을 위한 공간 필요
+            - 신뢰성 문제
+                - 사용자가 포인터를 실수로 건드리는 문제 등
+    - Indexed allocation 
+        - File이 저장된 block 정보를 Index blcok에 모아둠
+        - 직접 접근에 효율적
+            - 순차 접근에는 비효율적 
+        - File당 Index블록을 유지
+            - Space Overhead 
+            - Index block 크기에 따라 파일의 최대 크기가 제한 됨 
+        - UNIX 등에 사용됨 
+
