@@ -136,4 +136,55 @@ segmentation
             - Space Overhead 
             - Index block 크기에 따라 파일의 최대 크기가 제한 됨 
         - UNIX 등에 사용됨 
+        - 
+
+--- 
+기출 예상 문제 
+
+9. I/O 메커니즘, 특히 DMA 중요 
+- Processor controlled memory access (CPU가 제어한다) 
+    - Polling (Programed I/O)
+    - Interrupt 
+- Direct Memory Access (DMA)(CPU가 관리하지 않음) 
+
+Polling (Programmed I/O)
+- 모든 I/O 장치를 순환하며 확인 
+- 전송 준비 및 전송 상태 등 
+- 장점
+    - Simple 
+    - I/O 장치가 빠르고 데이터 전송이 잦은 경우 효율적 
+- 단점 
+    - Processor의 부담이 큼
+        - Polling overhead(I/O device가 느린 경우)
+
+Interrupt 
+- I/O 장치가 작업을 완료한 후, 자신의 상태를 Processor 에게 전달 
+    - Interrupt 발생 시, Processor는 데이터 전송 수행
+- 장점
+    - Polling 대비 Low Overhead 
+    - 불규칙적인 요청 처리에 적합
+- 단점
+    - Interrupt handling overhead 
+
+Direct Memory Acess (DMA)
+- Processor controlled memory access 방법 
+    - Processor가 모든 데이터 전송을 처리해야 함
+    - High overhead for the processor 
+- Direct Memory Access 
+    - I/O 장치와 Memory 사이의 데이터 전송을 Processor 개입 없이 수행 
+- Processor는 데이터 전송의 시작/종료 만 관여
+    1. 프로세서가 전송 방향, 전송 바이트 수, 데이터 블록의 메모리 주소 등을 DMA 제어기에 보낸다.
+    2. DMA 제어기는 디스크 제어기에 데이터를 메인 메인 메모리로 전송하라고 요청한다. 
+    3. 디스크 제어기가 메인 메모리에 데이터를 전송한다. (버퍼 존재) 
+    4. 데이터 전송을 완료하면 디스크 제어기는 DMA 제어기에 완료 메시지를 전달한다.
+    5. DMA 제어기가 프로세서에 인터럽트 신호를 보낸다. 
+
+10. UNIX운영체제에서 각 파일에 대하여 데이터 블록이 디스크 상에서 어떠한 방식으로 할당되는지, 또한 inode구조를 통하여 어떻게 관리 되는지 설명하시오. 
+- 유닉스가 대표적인 indexed allocation 방식 
+- 싱글 인다이렉트 인덱스는 블록을 하나 거쳐서 데이터로 간다. 
+- 더블 인다이렉트 인덱스는 블록을 두 개 거쳐 데이터로 간다. 
+- 파일 사이즈가 클 때는 멀티레벨이 필요하다. 하나의 레벨로는 한계가 있다. 
+- 하나의 블럭이 1k라고 가정하면 인덱스 블록이 10개면 최대 사이즈가 10k 
+- Two-Level, Three-Level로 하면 파일을 훨씬 크게 쓸 수 있다. 
+- 멀티레벨을 사용해서 대용량 파일을 사용할 수 있게 하고있음  
 
