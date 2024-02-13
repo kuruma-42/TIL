@@ -43,3 +43,29 @@ class Queue:
 - 상기의 코드에서 front_index 변수 -> dequeue가 되면 인덱스 값이 하나 증가하여 다음 dequeue될 예정인 값의 인덱스를 가리키도록 관리한다.
 - self.front_index += 1 코드
 - 주의 할 점은 실제로 삭제연산을 하면 알고리즘 문제를 풀 때 시간초과가 날 수 있다는 것이다.
+- Queue 클래스에서 값을 저장하는 자료구조로 리스트를 사용했는데, dequeue 연산을 위해 pop(0)라는 리스트 연산을 사용할 수도 있었다.
+- pop(0)을 삭제하면 1,2,3,4... 의 인덱스들이 차례로 왼쪽으로 밀려와야하기 때문에 O(n)의 시간이 필요하다. 따라서 가장 먼저들어와 있는 값이 저장된 인덱스를 위한 front_index라는 멤버를 사용해야 한다. front_index의 값은 dequeue 연산이 이루어질 떄 마다 1씩 증가하면 된다.
+- 큐를 리스트로 구현했고 enqeue 연산을 리스트의 append 연산을 사용했기 때문에 enqueue 연산이 평균 O(1) 시간이 걸린다. 만약 최악의 경우 O(1) 시간을 보장하고 싶다면, 리스트의 크기를 미리 정해서 아래와 같은 생성 함수를 부르면 된다. 단, 다음에 enqueue될 빈 칸의 인덱스(보통 rear_index라 부름)가 필요하고 enqueue에서 관리해야 한다. 
+- 이 경우에는 큐의 빈 칸이 없을 수 있기 때문에 먼저 빈 칸이 있는지 검사하는 조건문이 와야 한다.
+
+```python
+  def __init(self, size=8):
+    self.items = [None]*size
+    self.front_index = 0
+    self.rear_index = 0
+```
+
+- front_index 멤버를 사용하면 O(1) 시간에 dequeue 연산이 가능하지만, 단점도 존재한다.
+- 예를 들어, 100개의 값이 enqueue된 후, 다시 100번의 deqeue 되었다고 해보자. 그러면 items의 100개 칸이 이후에는 다시 사용되지 않고 낭비된다.
+- 메모리 낭비를 줄이려면 원형 큐(circular queue)를 사용할 수 있다.
+- 메모리 부족을 신경쓰지 않고 사용하려면 연결리스트(linked list)로 큐를 구현하면 된다.
+
+#### Dequeue
+- 왼쪽과 오른쪽에서 모두 삽입과 삭제가 가능한 큐 - 두 가지 버전의 push와 pop을 구현하면 되고, 나머지 연산은 Stack, Queue클래스와 유사하게 구현한다
+- Python에서는 collections라는 모듈에 deque란 클래스로 dequeue가 이미 구현됨
+- 오른쪽 push = append, 왼쪽 push = appendleft
+- 오른쪽 pop = pop, 왼쪽 = popleft
+- from collections import deque
+
+
+
