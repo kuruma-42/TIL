@@ -7,7 +7,7 @@
 
 ### 추상화
 
-```
+```swift
 public protocol WebScriptMessageHandlable {
   var names: [String] { get }
   func handle(with message: WKScriptMessage)
@@ -19,7 +19,7 @@ public protocol WebScriptMessageHandlable {
 
 ### 웹뷰 코드
 
-```
+```swift
 public struct WKWebSwiftUIView: UIViewRepresentable {
 
   public var url: String
@@ -146,7 +146,7 @@ public struct WKWebSwiftUIView: UIViewRepresentable {
 
 ### 구현체
 
-```
+```swift
 public struct WebViewScriptHandler: WebScriptMessageHandlable {
 
   public let names: [String]
