@@ -14,7 +14,7 @@
 
 ### 예시 코드
 
-```
+```swift
 protocol OrderValidator {
     func validate(order: Order) -> Bool
 }
@@ -77,7 +77,7 @@ class OrderProcessor {
 
 ### 컴파일 시 에러를 못잡는 이유
 
-```
+```swift
 ServiceLocator.shared.register("adsf" as Any)
 
 let validator: OrderValidator = ServiceLocator.shared.resolve()
